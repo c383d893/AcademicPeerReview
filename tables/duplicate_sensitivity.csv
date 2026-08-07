@@ -1,0 +1,35 @@
+section,metric,item_label,original,deduplicated,detail_original,detail_deduplicated
+sample,n_analytical,NA,301,287,NA,NA
+sample,n_duplicate_sets,NA,14,0,NA,NA
+sample,n_duplicate_responses,NA,28,14,NA,NA
+sample,n_responses_removed,NA,0,14,NA,NA
+sb_considered_split,sb_considered,NA,42,41,NA,NA
+sb_considered_split,sb_not_considered,NA,116,111,NA,NA
+sb_considered_split,sb_no_branch_answer,NA,2,2,NA,NA
+endorsement_rate_pct,DB_benefit_a,More fair/objective review,76.6,76.69,108/141,102/133
+endorsement_rate_pct,DB_benefit_b,Reduces prestige bias,58.16,57.89,82/141,77/133
+endorsement_rate_pct,DB_benefit_c,Reduces gender bias,48.94,48.12,69/141,64/133
+endorsement_rate_pct,DB_benefit_d,Reduces country/location bias,44.68,44.36,63/141,59/133
+endorsement_rate_pct,DB_benefit_e,Increased review quality,52.48,53.38,74/141,71/133
+endorsement_rate_pct,DB_challenge_a,Author burden,18.44,18.05,26/141,24/133
+endorsement_rate_pct,DB_challenge_b,Editorial office burden,36.17,35.34,51/141,47/133
+endorsement_rate_pct,DB_challenge_c,Anonymization not fully successful,35.46,36.09,50/141,48/133
+endorsement_rate_pct,DB_challenge_d,Hard to identify conflict of interest,22.7,24.06,32/141,32/133
+endorsement_rate_pct,DB_challenge_e,May reduce reviewer participation,9.93,10.53,14/141,14/133
+endorsement_rate_pct,DB_challenge_f,Limits contextualizing work,14.18,15.04,20/141,20/133
+endorsement_rate_pct,SB_benefit_a,More fair/objective review,31.65,32.24,50/158,49/152
+endorsement_rate_pct,SB_benefit_b,Reduces prestige bias,38.61,38.82,61/158,59/152
+endorsement_rate_pct,SB_benefit_c,Reduces gender bias,13.92,13.82,22/158,21/152
+endorsement_rate_pct,SB_benefit_d,Reduces country/location bias,27.22,26.97,43/158,41/152
+endorsement_rate_pct,SB_benefit_e,Increased review quality,10.13,9.87,16/158,15/152
+endorsement_rate_pct,SB_challenge_a,Author burden,34.81,34.21,55/158,52/152
+endorsement_rate_pct,SB_challenge_b,Editorial office burden,44.94,44.08,71/158,67/152
+endorsement_rate_pct,SB_challenge_c,Anonymization not fully successful,60.76,60.53,96/158,92/152
+endorsement_rate_pct,SB_challenge_d,Hard to identify conflict of interest,50,50,79/158,76/152
+endorsement_rate_pct,SB_challenge_e,May reduce reviewer participation,33.54,32.89,53/158,50/152
+endorsement_rate_pct,SB_challenge_f,Limits contextualizing work,44.3,44.08,70/158,67/152
+firth_or_discipline_adjusted,OR_benefit_e,Increased review quality,7.267,8.262,"7.27 [3.58, 15.45], p = 1.55e-08","8.26 [3.97, 18.12], p = 4.85e-09"
+firth_or_discipline_adjusted,OR_benefit_a,More fair/objective review,4.604,4.373,"4.60 [2.48, 8.81], p = 9.57e-07","4.37 [2.32, 8.50], p = 4.11e-06"
+firth_or_discipline_adjusted,OR_benefit_c,Reduces gender bias,3.808,3.704,"3.81 [1.96, 7.58], p = 7.95e-05","3.70 [1.86, 7.53], p = 0.00018"
+firth_or_discipline_adjusted,OR_benefit_b,Reduces prestige bias,1.922,1.89,"1.92 [1.06, 3.51], p = 0.0309","1.89 [1.03, 3.52], p = 0.0412"
+firth_or_discipline_adjusted,OR_challenge_e,May reduce reviewer participation,0.252,0.288,"0.25 [0.11, 0.54], p = 0.000287","0.29 [0.12, 0.63], p = 0.00133"
