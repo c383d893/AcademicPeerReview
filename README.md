@@ -1,16 +1,41 @@
 # Code and data to reproduce: Peer review models across disciplines: experienced benefits of blinding outweigh perceived risks
 
-Code and de-identified data to reproduce the analyses, figures, and supplementary
+Code, data, and de-identified survey data to reproduce the analyses, figures, and supplementary
 tables in the paper.
 
-## Bibliometric analysis — Figures 1 & 2
+## Part 1: Bibliometric analysis — Figures 1 & 2
 
-<!-- Camille: add documentation for the bibliometric peer-review-landscape code
-     (Figures 1 and 2, journal-level dataset) here. -->
+This section compiles peer review model dataset and runs assocaited analyses.
 
-_Documentation to be added._
+### Reproduce
 
-## Survey analysis — Figures 3, 4, S1–S6 and Tables S1–S5
+Install the packages (below), then run in sequence using the RProject "BlindingGitHub.Rproj".
+
+### Scripts: *round in root directory.
+
+| # | Script | Produces |
+|---|---|---|
+| A | `A.Blinding_cleaning.R` | Merge peer review model sources and add impact factor |
+| B | `B.Blinding_Impact.R` | Determine journals for peer-review model survey |
+| C | `C.Transpose_PR_clean.R` | Incorporate transpose data into dataset |
+| D | `D.Manual_PR_join.R` | Incorporate manually (web) searched peer-review model for survey journals into database |
+| E | `E.Analyses.R` | All analyses of database. **Figs 1-3 & SI1** |
+
+All scripts must be run in order.
+
+### Requirements
+
+R (>= 4.2). Packages:
+
+```r
+install.packages(c(
+  "tidyverse",                                                  # data handling 
+  "lme4", "lmerTest",                                           # models
+  "ggplot2", "emmeans", "ggeffects", "multcomp", "ggalluvial"   # plotting + visualization
+  ))
+```
+
+## Part 2: Survey analysis — Figures 3, 4, S1–S6 and Tables S1–S5
 
 Everything in this section runs from the de-identified respondent data.
 
