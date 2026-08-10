@@ -11,7 +11,7 @@ This section compiles peer review model dataset and runs assocaited analyses.
 
 Install the packages (below), then run in sequence using the RProject "BlindingGitHub.Rproj".
 
-### Scripts: *round in root directory.
+### Scripts: *Found in root directory.
 
 | # | Script | Produces |
 |---|---|---|
