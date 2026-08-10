@@ -5,7 +5,11 @@ tables in the paper.
 
 ## Part 1: Bibliometric analysis — Figures 1 & 2
 
-This section compiles peer review model dataset and runs assocaited analyses.
+This section compiles peer review model dataset and runs associated analyses.
+
+### Data
+
+- TBD
 
 ### Reproduce
 
