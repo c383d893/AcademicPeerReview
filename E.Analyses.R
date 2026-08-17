@@ -20,7 +20,7 @@ colors_model <- c(
 
 colors_broad_group <- c(
   "Humanities and Social Sciences" = "orchid4",
-  "Life Sciences" = "#33a02c"
+  "Science, Technology, Engineering, and Mathematics" = "#33a02c"
 )
 
 
@@ -72,7 +72,7 @@ dat <- readRDS("data/merged_blinding_wdjtrans_final_peerreview.RDS") %>%
   #dplyr::select("journal","ISSN","eISSN","JIF_2022", "JCI_2022","pub_model","journal_super_category", "region","in_editor_list", "citations") %>%
   mutate(pub_model_report = ifelse(pub_model == "Unknown", "N", "Y")) %>%
   mutate(broad_group = case_when(journal_super_category %in% c("Arts&Humanities","SocialSciences","Multidisciplinary" ) ~ "Humanities and Social Sciences",
-                                 journal_super_category %in% c("ClinicalPre-Clinical&Health", "Engineering&Technology","PhysicalSciences", "LifeSciences") ~ "Life Sciences")) %>%
+                                 journal_super_category %in% c("ClinicalPre-Clinical&Health", "Engineering&Technology","PhysicalSciences", "LifeSciences") ~ "Science, Technology, Engineering, and Mathematics")) %>%
   mutate(pub_model = ifelse(pub_model == "Double/triple-blind", "Double-blind", pub_model))
 
 # complete list
@@ -130,7 +130,7 @@ ggplot(
   scale_fill_manual(
     values = c(
       "Humanities and Social Sciences" = "orchid4",
-      "Life Sciences" = "#33a02c"
+      "Science, Technology, Engineering, and Mathematics" = "#33a02c"
     ),
     name = NULL   # removes legend title
   ) +
@@ -450,38 +450,3 @@ results.df # p = 0.0001; <.0001
 png("figures/FigureS1_predicted_discipline_pubmodel_citations.jpg", width = 12, height = 10, units = 'in', res = 300)
 plot
 dev.off()
-
-###############################
-##### SUMMARY & VISUALIZE #####
-###############################
-
-# proportional bar plot: peer review by category and peer review reported by category
-
-# peer review mod45
-# need to run m1 to get ordered_levels
-dat.b$journal_super_category <- factor(
-  dat.b$journal_super_category,
-  levels = ordered_levels
-)
-
-plot <- ggplot(dat.b %>% filter(!pub_model == "Unknown"), aes(x = journal_super_category, fill = pub_model)) +
-  geom_bar(position = position_fill(reverse = TRUE), alpha = 0.8) +
-  labs(x = "Discipline", y = "Proportion", fill = "Peer review model") +
-  scale_fill_manual(values = colors_model) +
-  scale_x_discrete(labels = cat_names) +
-  theme_minimal(base_size = 25) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position = "bottom")
-
-plot
-
-# peer review model reporting
-plot <- ggplot(dat.b, aes(x = journal_super_category, fill = pub_model_report)) +
-  geom_bar(position = position_fill(reverse = FALSE), alpha = 0.8) +
-  labs(x = "Discipline", y = "Proportion", fill = "Model Reported") +
-  scale_fill_manual(values = colors_model_report) +
-  scale_x_discrete(labels = cat_names) +
-  theme_minimal(base_size = 25) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position = "bottom")
-
-plot
-
