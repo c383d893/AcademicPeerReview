@@ -136,13 +136,13 @@ fdat <- mdat_tdatISSN2_con %>%
 
 #save output: this is what went to drive: "Full_CitizenScience_Peer-review_Study"
 #20114
-saveRDS(fdat, "data/merged_blinding_wdjtrans.RDS")
+saveRDS(fdat, "data/merged_blinding_wdjtrans.rds")
 write.csv(fdat, "data/merged_blinding_wdjtrans.csv")
 
 # add eISSN journals:
 edat_eISSN <- unique(c(edat256$eISSN)) # 260
 
-mdat.e <- readRDS("data/merged_blinding.RDS") %>% distinct(eISSN, .keep_all = TRUE) %>% filter(is.na(ISSN)) %>%
+mdat.e <- readRDS("data/merged_blinding.rds") %>% distinct(eISSN, .keep_all = TRUE) %>% filter(is.na(ISSN)) %>%
   mutate(peer_review_model = NA)
 
 #clean mdat model
@@ -187,7 +187,7 @@ fdat.e <- mdat.e %>%
 fdat.f <- rbind(fdat, fdat.e) 
 
 # 21472
-saveRDS(fdat.f, "data/merged_blinding_wdjtrans_final.RDS")
+saveRDS(fdat.f, "data/merged_blinding_wdjtrans_final.rds")
 write.csv(fdat.f, "data/merged_blinding_wdjtrans_final.csv")
 
 # exploring how we ended up with 2361 in_editor_list, when there should be 2360

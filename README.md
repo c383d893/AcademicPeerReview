@@ -9,7 +9,29 @@ This section compiles peer review model dataset and runs associated analyses.
 
 ### Data
 
-- TBD
+- `wos_full_202404_Rformat.txt` — web of science journals and associated metadata; see text for full description of column names
+- `doaj_reduced_202404_Rformat.txt` — directory of open access journals journals and associated metadata; see text for full description of column names
+- `Cat_JCR_JournalResults_04_2024_Clean_Rformat.txt` — web of science impact factors
+- `merged_blinding.rds` — merged wos, doaj, and impact factor
+- `merged_blinding.csv` — .csv. version of `merged_blinding.rds`
+- `merged_blinding_topj256.rds` — top journals by journal impact factor for each of 256 categories; there are 260 due to ties in JIF per category
+- `merged_blinding_topj256.csv` — .csv version of `merged_blinding_topj256.rds`
+- `Blinding_cat_merge_Nov202024.txt` — 256 categories collapsed to 21 larger categories; some have up to 4 corresponding larger categories
+- `journalcategories.rds` —  merged wos, doaj, and impact factor with 21 larger cateogries
+- `merged_blinding_topj20&20perquartpercat.rds` — extracted top 20 and 20 per quartile per category from 21 large categories, without resampling from merged_blinding_topj256.rds
+- `merged_blinding_topj20&20perquartpercat.csv` - .csv version of `merged_blinding_topj20&20perquartpercat.rds`
+- `Transposedownload.csv` — downloaded Transpose dataset from website
+- `Transposeclean.rds` —  cleaned Transpose dataset to merge with study dataset
+- `Transposeclean2.csv` —  cleaned Transpose in excel.
+- `Transposeclean_final.rds` —  cleaned Transpose dataset with collapsed peer review model to merge with study dataset
+- `merged_blinding_wdjtrans.rds` —  final merged dataset
+- `merged_blinding_wdjtrans.csv` —  .csv version of `merged_blinding_wdjtrans.rds`
+- `merged_blinding_wdjtrans_final.rds` — final merged dataset with cleaned peer review model
+- `merged_blinding_wdjtrans_final.csv` — .csv version of `merged_blinding_wdjtrans_final.rds`
+- `Full_CitizenScience_Peer-review_Study_April232026.txt` — ISSN of merged_blinding_wdjtrans_final.RDS plus our hand collected additional peer review model data
+- `merged_blinding_wdjtrans_final_peerreview.rds` — final merged dataset with cleaned peer review model plus hand collected additional peer review model data
+- `merged_blinding_wdjtrans_final_peerreview.csv` — .csv version of `merged_blinding_wdjtrans_final_peerreview.rds`
+- `Blinding_cat_merge_May132026.txt` — 256 categories collapsed to 21 larger categories; some corrections for final analysis from `Blinding_cat_merge_Nov202024.txt` 
 
 ### Reproduce
 

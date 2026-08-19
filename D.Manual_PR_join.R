@@ -6,7 +6,7 @@
 
 library(tidyverse)
 
-dat <- readRDS("data/merged_blinding_wdjtrans_final.RDS")
+dat <- readRDS("data/merged_blinding_wdjtrans_final.rds")
 
 dat.man <- read.table("data/Full_CitizenScience_Peer-review_Study_April232026.txt", header =TRUE) %>%
   rename(peer_review_model_man = peer_review_model) 
@@ -31,6 +31,6 @@ dat.fin %>% filter(in_editor_list == "Y") %>% group_by(peer_review_model) %>% ta
 #1288
 
 #save
-saveRDS(dat.fin, "data/merged_blinding_wdjtrans_final_peerreview.RDS")
+saveRDS(dat.fin, "data/merged_blinding_wdjtrans_final_peerreview.rds")
 write.csv(dat.fin, "data/merged_blinding_wdjtrans_final_peerreview.csv")
   

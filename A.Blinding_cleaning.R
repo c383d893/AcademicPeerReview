@@ -170,10 +170,10 @@ wdj.other <- wd %>%
 
 wdj <- rbind(wdj.issn,wdj.eissn,wdj.other)
 
-saveRDS(wdj, "data/merged_blinding.RDS")
+saveRDS(wdj, "data/merged_blinding.rds")
 write.csv(wdj, "data/merged_blinding.csv")
 
-#find top journal of each category by JCI
+#find top journal of each category by JIF
 #used for survey round 1 (top journal from 256 categories)
 topj <- wdj %>% group_by(category_1) %>% slice_max(JIF_2022, n = 1) # 260 because of ties in IF.
 saveRDS(topj, "data/merged_blinding_topj256.rds")

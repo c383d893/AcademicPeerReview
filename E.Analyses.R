@@ -40,7 +40,7 @@ cat <- read.table("data/Blinding_cat_merge_May132026.txt", header = TRUE) %>%  #
   rename(category = catlong, short_category = catshort1) %>%
   dplyr::select(category, short_category)
 
-dat <- readRDS("data/merged_blinding_wdjtrans_final_peerreview.RDS") %>%
+dat <- readRDS("data/merged_blinding_wdjtrans_final_peerreview.rds") %>%
   dplyr::select(-starts_with("short_")) %>%
   rename(category = category_1) %>%
   dplyr::select(-starts_with("category_")) %>%
