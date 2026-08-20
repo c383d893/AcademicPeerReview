@@ -16,3 +16,6 @@ renv/staging/
 # The precomputed duplicate-title summary is a needed input, so it is kept.
 /tables/*.csv
 !/tables/duplicate_sensitivity.csv
+
+# Office lock files
+~$*
