@@ -1,6 +1,6 @@
-# 06_fig4_crossmodel.R
+# 06_fig5_crossmodel.R
 #
-# Manuscript Figure 4 (two-panel):
+# Manuscript Figure 5 (two-panel):
 #   Panel A — discipline-adjusted Firth odds ratios (double-blind vs
 #             single-blind) for each challenge and benefit item
 #   Panel B — the same contrasts as discipline-standardized endorsement rates,
@@ -14,8 +14,8 @@
 #   tables/table_S_item_ratios.csv
 #     (discipline-standardized rates and fold-changes from scripts/03)
 #
-# Output: figures/Figure4.pdf, figures/Figure4.png (300 dpi)
-# Run from the repo root: Rscript scripts/06_fig4_crossmodel.R
+# Output: figures/Figure5.pdf, figures/Figure5.png (300 dpi)
+# Run from the repo root: Rscript scripts/06_fig5_crossmodel.R
 
 suppressPackageStartupMessages({
   library(tidyverse)
@@ -97,5 +97,5 @@ fig <- (p_forest | p_dumbbell) +
   plot_annotation(tag_levels = "A", tag_suffix = ".")
 
 dir.create("figures", showWarnings = FALSE)
-ggsave("figures/Figure4.png", fig, width = 11, height = 7, dpi = 300, bg = "white")
-cat("done: figures/Figure4.png\n")
+ggsave("figures/Figure5.png", fig, width = 11, height = 7, dpi = 300, bg = "white")
+cat("done: figures/Figure5.png\n")

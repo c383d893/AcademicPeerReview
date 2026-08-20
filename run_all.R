@@ -10,12 +10,13 @@ scripts <- c(
   "scripts/01_robustness_family_glmm.R",   # -> tables/ (pooled OR / LRT robustness)
   "scripts/02_net_favorability.R",         # -> tables/ (net-favorability models)
   "scripts/03_anticipation_ratios.R",      # -> tables/ (anticipated-to-experienced ratios)
-  "scripts/04_si_figures_tables.R",        # -> figures/ S1-S4, tables/ S1-S3
-  "scripts/05_fig3_perceived.R",           # -> figures/Figure3
-  "scripts/06_fig4_crossmodel.R",          # -> figures/Figure4
-  "scripts/07_figS5_net_favorability.R",   # -> figures/FigureS5
-  "scripts/08_figS6_by_discipline.R",      # -> figures/FigureS6
-  "scripts/09_render_si_tables.R"          # -> tables/SI_tables.docx
+  "scripts/04_si_figures_tables.R",        # -> figures/ S2-S5, tables/ S2-S3 CSVs
+  "scripts/05_fig4_perceived.R",           # -> figures/Figure4
+  "scripts/06_fig5_crossmodel.R",          # -> figures/Figure5
+  "scripts/07_figS6_net_favorability.R",   # -> figures/FigureS6
+  "scripts/08_figS7_by_discipline.R",      # -> figures/FigureS7
+  "scripts/09_render_si_tables.R",         # -> tables/SI_tables.docx (Tables S2-S6)
+  "scripts/10_hss_stem_benefit_counts.R"   # -> tables/ (HSS vs STEM benefit counts)
 )
 
 for (s in scripts) {

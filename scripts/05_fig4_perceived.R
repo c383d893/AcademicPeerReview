@@ -1,13 +1,13 @@
-# 05_fig3_perceived.R
-# Manuscript Figure 3: perceived benefits & challenges of fully blinded review.
+# 05_fig4_perceived.R
+# Manuscript Figure 4: perceived benefits & challenges of fully blinded review.
 #   Panel A — overall pooled endorsement rates with Wilson CIs (items on y).
 #   Panel B — the same items by discipline, as benefit/challenge heatmaps.
 # Panel B is transposed relative to earlier drafts: items on y (readable,
 # aligned with A), disciplines on x; one clean percent per cell.
 #
 # Input:  data/blinding_survey_dat.csv
-# Output: figures/Figure3.pdf, figures/Figure3.png
-# Run from the repo root: Rscript scripts/05_fig3_perceived.R
+# Output: figures/Figure4.pdf, figures/Figure4.png
+# Run from the repo root: Rscript scripts/05_fig4_perceived.R
 
 suppressPackageStartupMessages({
   library(tidyverse)
@@ -138,12 +138,12 @@ panelB_chal <- heat_panel(filter(disc_rates, type == "Challenge") %>% droplevels
 panelA     <- panelA + labs(tag = "A.")
 panelB_ben <- panelB_ben + labs(tag = "B.")
 
-fig3 <- panelA / (panelB_ben | panelB_chal) +
+fig4 <- panelA / (panelB_ben | panelB_chal) +
   plot_layout(heights = c(1, 1.4)) &
   theme(plot.tag = element_text(face = "bold", size = 18),
         plot.tag.position = c(0, 1))
 
 # ---- export ----
 dir.create("figures", showWarnings = FALSE)
-ggsave("figures/Figure3.png", fig3, width = 13, height = 11, dpi = 300, bg = "white")
-cat("done: figures/Figure3.png\n")
+ggsave("figures/Figure4.png", fig4, width = 13, height = 11, dpi = 300, bg = "white")
+cat("done: figures/Figure4.png\n")

@@ -1,11 +1,11 @@
-# 08_figS6_by_discipline.R
-# Figure S6: a by-field version of the perceived benefits/challenges. For each
+# 08_figS7_by_discipline.R
+# Figure S7: a by-field version of the perceived benefits/challenges. For each
 # benefit/challenge, one colored point + Wilson CI per discipline, dodged on the
-# same row. Same data as the Figure 3B heatmap, drawn as pointranges.
+# same row. Same data as the Figure 4B heatmap, drawn as pointranges.
 #
 # Input:  data/blinding_survey_dat.csv
-# Output: figures/FigureS6_perceived_by_discipline.png
-# Run from the repo root: Rscript scripts/08_figS6_by_discipline.R
+# Output: figures/FigureS7_perceived_by_discipline.png
+# Run from the repo root: Rscript scripts/08_figS7_by_discipline.R
 
 suppressPackageStartupMessages({
   library(tidyverse); library(scales); library(patchwork)
@@ -63,7 +63,7 @@ disc_n <- disc_dat %>% count(journal_super_category) %>%
   mutate(disc_label = paste0(journal_super_category, " (N=", n, ")"))
 disc_rates <- calc_rates(disc_dat, group_vars = "journal_super_category") %>%
   left_join(disc_n, by = "journal_super_category") %>%
-  filter(journal_super_category != "Not indicated") %>%   # missing discipline, not a field (matches Fig 3B N=285)
+  filter(journal_super_category != "Not indicated") %>%   # missing discipline, not a field (matches Fig 4B N=285)
   mutate(item_label = factor(as.character(item_label), levels = item_levels))
 
 # discipline order = by mean benefit endorsement (for legend + color mapping)
@@ -100,6 +100,6 @@ figS6 <- disc_rates %>%
         plot.title = element_text(size = 13, face = "bold"))
 
 dir.create("figures", showWarnings = FALSE)
-ggsave("figures/FigureS6_perceived_by_discipline.png", figS6,
+ggsave("figures/FigureS7_perceived_by_discipline.png", figS6,
        width = 13, height = 8.5, dpi = 300)
-cat("done: figures/FigureS6_perceived_by_discipline.png\n")
+cat("done: figures/FigureS7_perceived_by_discipline.png\n")

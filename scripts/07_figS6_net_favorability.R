@@ -1,10 +1,10 @@
-# 07_figS5_net_favorability.R
-# Figure S5: net favorability collapsed to three categories (more challenges /
+# 07_figS6_net_favorability.R
+# Figure S6: net favorability collapsed to three categories (more challenges /
 # equal / more benefits) per model, as a 100% stacked bar.
 #
 # Input:  data/blinding_survey_dat.csv
-# Output: figures/FigureS5_net_favorability.png
-# Run from the repo root: Rscript scripts/07_figS5_net_favorability.R
+# Output: figures/FigureS6_net_favorability.png
+# Run from the repo root: Rscript scripts/07_figS6_net_favorability.R
 
 suppressPackageStartupMessages({ library(tidyverse); library(scales) })
 
@@ -64,5 +64,5 @@ cat(sprintf("N item-complete: SB=%d, DB=%d, total=%d\n", n_sb, n_db, n_sb + n_db
 print(plot_dat %>% select(group, cat, prop) %>% mutate(prop = round(prop, 3)))
 
 dir.create("figures", showWarnings = FALSE)
-ggsave("figures/FigureS5_net_favorability.png", p, width = 8.5, height = 3.6, dpi = 300, bg = "white")
-cat("done: figures/FigureS5_net_favorability.png\n")
+ggsave("figures/FigureS6_net_favorability.png", p, width = 8.5, height = 3.6, dpi = 300, bg = "white")
+cat("done: figures/FigureS6_net_favorability.png\n")

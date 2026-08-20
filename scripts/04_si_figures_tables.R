@@ -13,12 +13,12 @@
 #   data/meta_stats.csv
 #
 # Outputs:
-#   figures/FigureS1_if-quartile.pdf
-#   figures/FigureS2_business-model.pdf
-#   figures/FigureS3_hq-region.pdf
-#   figures/FigureS4_considered.pdf
-#   tables/TableS1_sample_characteristics.csv
-#   tables/TableS2_discipline_by_model.csv
+#   figures/FigureS2_if-quartile.png
+#   figures/FigureS3_business-model.png
+#   figures/FigureS4_hq-region.png
+#   figures/FigureS5_considered.png
+#   tables/TableS2_sample_characteristics.csv
+#   tables/table_discipline_by_model.csv
 #   tables/TableS3_adjustment_sensitivity.csv
 #
 # Run from the repository root:
@@ -31,7 +31,7 @@ library(patchwork)
 library(logistf)
 
 # Fixed seed (20260611) so the Monte Carlo Fisher test (simulate.p.value) used
-# for the discipline row of Table S1 gives reproducible p-values across runs
+# for the discipline row of Table S2 gives reproducible p-values across runs
 set.seed(20260611)
 
 dir.create("figures", showWarnings = FALSE)
@@ -149,7 +149,7 @@ meta_stats <- read_csv("data/meta_stats.csv", show_col_types = FALSE)
 
 
 # ===========================================================================
-# Table S1: Sample characteristics by publishing model
+# Table S2: Sample characteristics by publishing model
 # ===========================================================================
 
 # Helper: build a cross-tab row block for one variable
@@ -168,7 +168,7 @@ crosstab_block <- function(data, var, var_label) {
 }
 
 # Helper: Fisher exact test p-value for a variable. The exact test is
-# deterministic and feasible for all Table S1 variables except the 8x2
+# deterministic and feasible for all Table S2 variables except the 8x2
 # discipline table, where it exhausts the network-algorithm workspace;
 # only that case falls back to seeded Monte Carlo simulation.
 fisher_p <- function(data, var) {
@@ -216,11 +216,11 @@ table1 <- bind_rows(
 table1 <- table1 %>%
   mutate(Variable = if_else(duplicated(Variable), "", Variable))
 
-write_csv(table1, "tables/TableS1_sample_characteristics.csv")
+write_csv(table1, "tables/TableS2_sample_characteristics.csv")
 
 
 # ===========================================================================
-# Table S2: Discipline by publishing model
+# Discipline by publishing model (feeds the rendered sample-characteristics table)
 # ===========================================================================
 
 tab_s2 <- analytical_dat %>%
@@ -233,7 +233,7 @@ tab_s2 <- analytical_dat %>%
   select(Discipline, `Single blind`, `Double/triple blind`, Total,
          `% double/triple-blind`)
 
-write_csv(tab_s2, "tables/TableS2_discipline_by_model.csv")
+write_csv(tab_s2, "tables/table_discipline_by_model.csv")
 
 
 # ===========================================================================
@@ -334,7 +334,7 @@ write_csv(table_wide, "tables/TableS3_adjustment_sensitivity.csv")
 
 
 # ===========================================================================
-# Figure S1: Perceived endorsement by impact factor quartile
+# Figure S2: Perceived endorsement by impact factor quartile
 # ===========================================================================
 
 if_dat <- endorsement_dat %>%
@@ -387,14 +387,14 @@ p_ben_if <- ggplot(
 fig_s1 <- p_chal_if | p_ben_if
 
 ggplot2::ggsave(
-  filename = "figures/FigureS1_if-quartile.png",
+  filename = "figures/FigureS2_if-quartile.png",
   plot = fig_s1, width = 14, height = 5,
   dpi = 300, bg = "white"
 )
 
 
 # ===========================================================================
-# Figure S2: Perceived endorsement by business model
+# Figure S3: Perceived endorsement by business model
 # ===========================================================================
 
 # Use correct denominators: SB branch respondents + all DB
@@ -439,14 +439,14 @@ fig_s2 <- ggplot(biz_rates,
   labs(x = "Perceived endorsement rate", y = NULL, color = NULL)
 
 ggplot2::ggsave(
-  filename = "figures/FigureS2_business-model.png",
+  filename = "figures/FigureS3_business-model.png",
   plot = fig_s2, width = 14, height = 8,
   dpi = 300, bg = "white"
 )
 
 
 # ===========================================================================
-# Figure S3: Perceived endorsement by publisher HQ region
+# Figure S4: Perceived endorsement by publisher HQ region
 # ===========================================================================
 
 hq_dat <- endorsement_dat %>%
@@ -490,14 +490,14 @@ fig_s3 <- ggplot(hq_rates,
   labs(x = "Perceived endorsement rate", y = NULL, color = NULL)
 
 ggplot2::ggsave(
-  filename = "figures/FigureS3_hq-region.png",
+  filename = "figures/FigureS4_hq-region.png",
   plot = fig_s3, width = 14, height = 8,
   dpi = 300, bg = "white"
 )
 
 
 # ===========================================================================
-# Figure S4: Considered vs. not considered (single-blind journals only)
+# Figure S5: Considered vs. not considered (single-blind journals only)
 # ===========================================================================
 
 # Only SB journals with a consideration status and discipline data
@@ -534,7 +534,7 @@ fig_s4 <- ggplot(or_results_6, aes(x = or, y = item_label, color = type)) +
   labs(x = "Odds ratio (log scale)", y = NULL, color = NULL)
 
 ggplot2::ggsave(
-  filename = "figures/FigureS4_considered.png",
+  filename = "figures/FigureS5_considered.png",
   plot = fig_s4, width = 10, height = 7,
   dpi = 300, bg = "white"
 )

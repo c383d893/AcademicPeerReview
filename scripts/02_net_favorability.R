@@ -16,7 +16,7 @@
 #   tables/table_net_collapsed_cells.csv         collapsed net-score cell counts
 #   tables/table_bootstrap_contrasts_n299.csv    bootstrap contrasts
 #
-# Key parameters / analytic frame (matches the GLMM spec / Fig 3A):
+# Key parameters / analytic frame (matches the GLMM spec / Fig 4A):
 #   sample == "analytical"; DB = all double/triple-blind respondents;
 #   SB = single-blind respondents routed to the branching question
 #   (consid_status in {Considered, Not considered}). n = 299 (158 SB / 141 DB),

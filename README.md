@@ -61,7 +61,7 @@ install.packages(c(
   ))
 ```
 
-## Part 2: Survey analysis — Figures 3, 4, S1–S6 and Tables S1–S5
+## Part 2: Survey analysis — Figures 4, 5, S2–S7 and Tables S2–S6
 
 Everything in this section runs from the de-identified respondent data.
 
@@ -91,13 +91,17 @@ or run individually with `Rscript scripts/NN_name.R`. Figures are written as PNG
 |---|---|---|
 | 01 | `01_robustness_family_glmm.R` | pooled OR / LRT robustness tables |
 | 02 | `02_net_favorability.R` | net-favorability models |
-| 03 | `03_anticipation_ratios.R` | anticipated-to-experienced rate ratios (Fig 4, Table S5) |
-| 04 | `04_si_figures_tables.R` | **Figs S1–S4**, **Tables S1–S3** |
-| 05 | `05_fig3_perceived.R` | **Figure 3** |
-| 06 | `06_fig4_crossmodel.R` | **Figure 4** |
-| 07 | `07_figS5_net_favorability.R` | **Figure S5** |
-| 08 | `08_figS6_by_discipline.R` | **Figure S6** |
-| 09 | `09_render_si_tables.R` | **`SI_tables.docx`** (Tables S1–S5) |
+| 03 | `03_anticipation_ratios.R` | anticipated-to-experienced rate ratios (Fig 5B, Table S5) |
+| 04 | `04_si_figures_tables.R` | **Figs S2–S5**, Tables S2–S3 CSVs |
+| 05 | `05_fig4_perceived.R` | **Figure 4** |
+| 06 | `06_fig5_crossmodel.R` | **Figure 5** |
+| 07 | `07_figS6_net_favorability.R` | **Figure S6** |
+| 08 | `08_figS7_by_discipline.R` | **Figure S7** |
+| 09 | `09_render_si_tables.R` | **`SI_tables.docx`** (Tables S2–S6) |
+| 10 | `10_hss_stem_benefit_counts.R` | HSS vs STEM benefit-count test (Results p < 0.0001) |
+
+Figure S1 and Table S1 are bibliometric (Part 1, script E); the survey outputs
+therefore start at Figure S2 / Table S2, matching the manuscript SI numbering.
 
 Scripts 03 and 04 must run before 06 and 09 (which consume their tables); this is
 the order `run_all.R` uses.
